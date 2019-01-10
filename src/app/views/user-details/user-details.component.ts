@@ -9,13 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private usersService: UserService) {}
-
+	public userData;
 	ngOnInit() {
 		var id;
-		var user;
 		this.route.params.subscribe((params) => (id = params.id));
 		this.usersService.userDetails(id).subscribe((data) => {
-			user = data.data;
+			this.userData = data.data;
 		});
 	}
 }

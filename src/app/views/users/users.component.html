@@ -3,9 +3,13 @@
 </p>
 <div *ngIf="users && users.length!==0; else loading">
 <ul>
-  <a  routerLink="/user/{{user.id}}"  *ngFor="let user of users">
-    {{user.first_name}}
-  </a>
+  <div *ngFor="let user of users">
+    <a routerLink="/user/{{user.id}}">
+          {{user.first_name}}
+    </a>
+    <label (click)="deleteUser(user.id)">x</label>
+  </div>
+ 
 </ul>
 </div>
 <ng-template #loading>

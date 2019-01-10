@@ -13,4 +13,9 @@ export class UsersComponent implements OnInit {
 			this.users = data.data;
 		});
 	}
+	deleteUser(id) {
+		this.usersService.deleteUser(id).subscribe((data) => {
+			debugger;
+		});
+	}
 }
